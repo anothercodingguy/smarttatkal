@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Train, SearchResult } from "../types";
+import { apiRequest } from "../lib/api";
 
 export default function HomePage() {
   const [from, setFrom] = useState("");
@@ -23,10 +24,8 @@ export default function HomePage() {
 
     setLoading(true);
     try {
-      // ✅ Hardcoded backend URL
-      const res = await fetch("http://localhost:5000/api/search", {
+      const res = await apiRequest("/api/search", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           from,
           to,

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { WaitlistPrediction } from "../../types";
+import { apiRequest } from "../../lib/api";
 
 export default function WaitlistPredictPage() {
   const [trainNumber, setTrainNumber] = useState("");
@@ -24,9 +25,8 @@ export default function WaitlistPredictPage() {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/waitlist-predict", {
+      const res = await apiRequest("/api/waitlist-predict", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           trainNumber,
           date,

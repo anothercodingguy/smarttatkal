@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { TrainStatus } from "../../types";
+import { apiRequest } from "../../lib/api";
 
 export default function TrainStatusPage() {
   const [trainNumber, setTrainNumber] = useState("");
@@ -22,9 +23,8 @@ export default function TrainStatusPage() {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/train-status", {
+      const res = await apiRequest("/api/train-status", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           trainNumber,
           date,

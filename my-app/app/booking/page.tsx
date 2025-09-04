@@ -4,6 +4,7 @@ import React, { useState, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { BookingResult } from "../../types";
+import { apiRequest } from "../../lib/api";
 
 function BookingForm() {
   const searchParams = useSearchParams();
@@ -46,9 +47,8 @@ function BookingForm() {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/booking", {
+      const res = await apiRequest("/api/booking", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 

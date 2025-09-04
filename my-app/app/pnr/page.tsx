@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { PNRStatus } from "../../types";
+import { apiRequest } from "../../lib/api";
 
 export default function PNRPage() {
   const [pnr, setPnr] = useState("");
@@ -21,9 +22,8 @@ export default function PNRPage() {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/pnr", {
+      const res = await apiRequest("/api/pnr", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ pnr }),
       });
 
