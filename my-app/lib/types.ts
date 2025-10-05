@@ -94,9 +94,16 @@ export interface SearchResult {
   };
 }
 
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = Record<string, unknown>> {
   success: boolean;
   data?: T;
   error?: string;
   message?: string;
 }
+
+// Specific API response types
+export type SearchApiResponse = ApiResponse<SearchResult>;
+export type BookingApiResponse = ApiResponse<BookingResult>;
+export type PNRApiResponse = ApiResponse<PNRStatus>;
+export type TrainStatusApiResponse = ApiResponse<TrainStatus>;
+export type WaitlistApiResponse = ApiResponse<WaitlistPrediction>;
