@@ -1,7 +1,11 @@
-🚄 SmartTatkal
+# 🚂 SmartTatkal - AI-Powered Train Booking Assistant
 
-SmartTatkal is a Tatkal booking assistant web app built with Next.js, TailwindCSS, Node.js (Express), and MongoDB.
-It is designed to make Indian Railway Tatkal bookings faster, smarter, and more reliable by providing a smooth UI and backend API integration.
+[![CI/CD Pipeline](https://github.com/yourusername/smarttatkal/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/smarttatkal/actions/workflows/ci.yml)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com/)
+
+A full-stack prototype that simulates an IRCTC booking workflow with AI-powered waitlist prediction, PNR status checking, live train status, and a clean, responsive UI. Built as a realistic demo of automation + UX (not an actual IRCTC integrator).
 
 ✨ Features
 

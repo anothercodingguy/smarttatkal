@@ -56,6 +56,13 @@ export interface Train {
   duration?: string;
 }
 
+export interface ApiResponse<T = any> {
+  success: boolean;
+  data?: T;
+  error?: string;
+  message?: string;
+}
+
 export interface WaitlistPrediction {
   probability: number;
   waitTime: number;
@@ -82,21 +89,4 @@ export interface TrainStatus {
 export interface BookingResult {
   message: string;
   reference?: string;
-}
-
-export interface SearchResult {
-  success: boolean;
-  trains: Train[];
-  searchCriteria: {
-    from: string;
-    to: string;
-    date: string;
-  };
-}
-
-export interface ApiResponse<T = any> {
-  success: boolean;
-  data?: T;
-  error?: string;
-  message?: string;
 }
