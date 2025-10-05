@@ -92,8 +92,10 @@ NEXT_PUBLIC_API_URL=https://smarttatkal-backend.onrender.com
 
 For backend (server/.env):
 
-MONGO_URI=your_mongo_connection_string
-PORT=5000
+NODE_ENV=production
+PORT=10000
+FRONTEND_URL=https://smarttatkal.vercel.app
+LOG_LEVEL=info
 
 📂 Project Structure
 smarttatkal/

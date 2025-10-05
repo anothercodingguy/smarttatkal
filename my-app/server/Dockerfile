@@ -36,8 +36,8 @@ RUN mkdir logs && chown nodejs:nodejs logs
 
 USER nodejs
 
-EXPOSE 5000
+EXPOSE 10000
 
-ENV PORT 5000
+ENV PORT 10000
 
 CMD ["node", "dist/server.js"]

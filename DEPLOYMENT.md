@@ -35,30 +35,32 @@ This guide covers deploying SmartTatkal to various platforms with production-rea
    NODE_ENV=production
    ```
 
-#### Backend (Railway)
-1. **Deploy to Railway**
-   ```bash
-   # Install Railway CLI
-   npm install -g @railway/cli
-   
-   # Login and deploy
-   railway login
-   railway init
-   railway up
-   ```
-
-2. **Configure Railway**
-   - Set start command: `npm start`
+#### Backend (Render)
+1. **Deploy to Render**
+   - Go to [Render Dashboard](https://dashboard.render.com/)
+   - Click "New +" → "Web Service"
+   - Connect your GitHub repository
    - Set root directory: `my-app/server`
-   - Configure environment variables
+
+2. **Configure Render Service**
+   ```
+   Name: smarttatkal-backend
+   Environment: Node
+   Build Command: npm ci && npm run build
+   Start Command: npm start
+   ```
 
 3. **Environment Variables**
    ```env
    NODE_ENV=production
-   PORT=5000
+   PORT=10000
    FRONTEND_URL=https://your-frontend.vercel.app
    LOG_LEVEL=info
    ```
+
+4. **Health Check**
+   - Set Health Check Path: `/health`
+   - This ensures Render monitors your service properly
 
 ### Docker + Cloud Platforms
 
