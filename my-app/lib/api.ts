@@ -1,24 +1,34 @@
 // API utility functions
 const getApiUrl = () => {
-  // In development, use localhost
+  // In development, use localhost backend
   if (process.env.NODE_ENV === 'development') {
-    return '';
+    return 'http://localhost:5000';
   }
   
-  // In production, you'll need to replace this with your actual backend URL
-  // For example: https://your-backend.vercel.app or https://your-backend.herokuapp.com
-  return process.env.NEXT_PUBLIC_API_URL || '';
+  // In production, use environment variable or default
+  return process.env.NEXT_PUBLIC_API_URL || 'https://your-backend-url.com';
 };
 
 export const apiRequest = async (endpoint: string, options: RequestInit = {}) => {
   const baseUrl = getApiUrl();
   const url = `${baseUrl}${endpoint}`;
   
-  return fetch(url, {
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers,
-    },
-    ...options,
-  });
+  try {
+    const response = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers,
+      },
+      ...options,
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return response;
+  } catch (error) {
+    console.error('API request failed:', error);
+    throw error;
+  }
 };
